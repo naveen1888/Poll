@@ -1,26 +1,38 @@
 package com.widget.polls.adapter
 
-import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.widget.polls.R
 import com.widget.polls.adapter.viewholder.TextPollViewHolder
+import com.widget.polls.model.PollList
 
-class TextPollAdapter(val _context: Context) : RecyclerView.Adapter<TextPollViewHolder>() {
+class TextPollAdapter(
+    val listener: (PollList) -> Unit,
+    private val pollList: ArrayList<PollList>,
+    private val sum: Int, var flag: Boolean
+) :
+    RecyclerView.Adapter<TextPollViewHolder>() {
 
-
-    // Inflates the item views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TextPollViewHolder {
-        return TextPollViewHolder(LayoutInflater.from(_context).inflate(R.layout.item_text_poll, parent, false))
+        return TextPollViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_text_poll, parent, false)
+        )
     }
 
 
     override fun getItemCount(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return pollList.size
     }
 
-    override fun onBindViewHolder(p0: TextPollViewHolder, p1: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+    override fun onBindViewHolder(holder: TextPollViewHolder, position: Int) {
+        return holder.bind(getItem(position), listener, sum, flag)
+    }
+
+
+    private fun getItem(position: Int): PollList {
+        return pollList[position]
     }
 }
