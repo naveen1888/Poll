@@ -2,11 +2,13 @@ package com.widget.polls.view
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.widget.polls.R
 import kotlinx.android.synthetic.main.activity_polls.*
 import kotlinx.android.synthetic.main.content_poll.*
 
-class PollActivity : BaseActivity() {
+class PollActivity : AppCompatActivity() {
 
     private var textPollFragment: TextPollFragment? = null
     private var imagePollFragment: ImagePollFragment? = null
@@ -44,6 +46,15 @@ class PollActivity : BaseActivity() {
                 showImageFragment()
             }
         }
+    }
+
+    private fun addFragmentWithBackStack(fragment: Fragment, layoutResId: Int, tag: String) {
+
+        supportFragmentManager.beginTransaction()
+            .add(layoutResId, fragment, tag)
+            .addToBackStack(tag)
+            .commit()
+
     }
 
 

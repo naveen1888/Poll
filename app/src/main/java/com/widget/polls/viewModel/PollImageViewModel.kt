@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.widget.polls.R
 import com.widget.polls.model.PollImageList
 
-class PollImageViewModel() : ViewModel() {
+class PollImageViewModel : ViewModel() {
 
     private var pollImageList: MutableLiveData<ArrayList<PollImageList>> = MutableLiveData()
 
