@@ -3,36 +3,40 @@ package com.widget.polls.adapter.viewholder
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.widget.polls.R
-import com.widget.polls.model.PollList
+import com.widget.polls.model.PollImageList
 
-class TextPollViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
-    RecyclerView.ViewHolder(inflater.inflate(R.layout.item_text_poll, parent, false)) {
+class ImagePollViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
+    RecyclerView.ViewHolder(inflater.inflate(R.layout.item_image_poll, parent, false)) {
 
-    private var mOption: TextView? = null
+    private var mName: TextView? = null
+    private var mImageView: ImageView? = null
     private var mPollCount: TextView? = null
     private var mProgressBar: ProgressBar? = null
     private var mLayout: RelativeLayout? = null
 
     init {
-        mOption = itemView.findViewById(R.id.tvOption)
+        mName = itemView.findViewById(R.id.tvName)
+        mImageView = itemView.findViewById(R.id.imageView)
         mPollCount = itemView.findViewById(R.id.tvPollCount)
         mProgressBar = itemView.findViewById(R.id.progressbar)
         mLayout = itemView.findViewById(R.id.layout)
     }
 
     fun bind(
-        pollList: PollList, position: Int,
+        pollList: PollImageList, position: Int,
         listener: (Int) -> Unit,
         sum: Int, flag: Boolean, mSelectionPos: Int
     ) {
 
-        mOption?.text = pollList.option
+        mName?.text = pollList.name
+        mImageView?.setImageResource(pollList.drawable)
 
         if (flag) {
             mPollCount?.text = pollList.value.toString()

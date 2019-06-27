@@ -2,5 +2,6 @@
     <string name="app_name">Poll</string>
     <string name="text_poll">Text Poll</string>
     <string name="image_poll">Image Poll</string>
+    <string name="text_image_heading">Who is you MVP this year</string>
     <string name="text_poll_heading">Is this eli managing last game with giants?</string>
 </resources>

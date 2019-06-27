@@ -1,7 +1,7 @@
 package com.widget.polls.view
 
-import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 
 open class BaseActivity : AppCompatActivity() {
 
@@ -13,6 +13,8 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     fun addFragmentWithBackStack(fragment: Fragment, layoutResId: Int, tag: String) {
+
+
         supportFragmentManager.beginTransaction()
             .add(layoutResId, fragment, tag)
             .addToBackStack(tag)

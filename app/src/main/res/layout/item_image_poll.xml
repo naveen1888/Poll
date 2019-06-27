@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/layout"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:background="@drawable/selector_row">
 
@@ -24,20 +24,6 @@
                 app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
-                android:id="@+id/tvOption"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:padding="5dp"
-                android:singleLine="true"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@android:color/white"
-                app:layout_constraintBottom_toBottomOf="@id/progressbar"
-                app:layout_constraintLeft_toLeftOf="@+id/progressbar"
-                app:layout_constraintRight_toLeftOf="@+id/tvPollCount"
-                app:layout_constraintTop_toTopOf="@id/progressbar"/>
-
-        <TextView
                 android:id="@+id/tvPollCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -48,6 +34,32 @@
                 app:layout_constraintRight_toRightOf="@+id/progressbar"
                 app:layout_constraintTop_toTopOf="@id/progressbar"/>
 
+        <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerInside"
+                android:contentDescription="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressbar"
+                android:src="@drawable/brady"/>
+
+        <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@android:color/white"
+                android:gravity="bottom"
+                app:layout_constraintTop_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+        />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </RelativeLayout>
