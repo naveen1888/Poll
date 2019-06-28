@@ -10,9 +10,9 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.widget.polls.R
-import com.widget.polls.model.PollImageList
+import com.widget.polls.model.ImageList
 
-class ImagePollViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
+class ImageViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     RecyclerView.ViewHolder(inflater.inflate(R.layout.item_image_poll, parent, false)) {
 
     private var mName: TextView? = null
@@ -30,20 +30,20 @@ class ImagePollViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     }
 
     fun bind(
-        pollList: PollImageList, position: Int,
+        list: ImageList, position: Int,
         listener: (Int) -> Unit,
-        sum: Int, flag: Boolean, mSelectionPos: Int
+        totalCount: Int, isClicked: Boolean, selectedPos: Int
     ) {
 
-        mName?.text = pollList.name
-        mImageView?.setImageResource(pollList.drawable)
+        mName?.text = list.name
+        mImageView?.setImageResource(list.drawable)
 
-        if (flag) {
-            mPollCount?.text = pollList.value.toString()
-            val double: Double = (pollList.value.toDouble() / sum) * 100
+        if (isClicked) {
+            mPollCount?.text = list.value.toString()
+            val double: Double = (list.value.toDouble() / totalCount) * 100
             mProgressBar?.progress = double.toInt()
             val drawable: Drawable?
-            if (mSelectionPos == position) {
+            if (selectedPos == position) {
                 mLayout?.isSelected = true
                 drawable = ContextCompat.getDrawable(itemView.context, R.drawable.seekbar_progress)
             } else {

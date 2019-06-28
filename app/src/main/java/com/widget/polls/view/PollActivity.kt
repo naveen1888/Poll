@@ -10,12 +10,11 @@ import kotlinx.android.synthetic.main.content_poll.*
 
 class PollActivity : AppCompatActivity() {
 
-    private var textPollFragment: TextPollFragment? = null
-    private var imagePollFragment: ImagePollFragment? = null
+    private var textFragment: TextFragment? = null
+    private var imageFragment: ImageFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_polls)
         setSupportActionBar(toolbar)
         btnImagePoll.setOnClickListener(clickListener)
@@ -25,14 +24,14 @@ class PollActivity : AppCompatActivity() {
 
     private fun showTextFragment() {
 
-        textPollFragment = TextPollFragment()
-        addFragmentWithBackStack(textPollFragment!!, R.id.container, "TextPollFragment")
+        textFragment = TextFragment()
+        addFragmentWithBackStack(textFragment!!, R.id.container, "TextFragment")
     }
 
     private fun showImageFragment() {
 
-        imagePollFragment = ImagePollFragment()
-        addFragmentWithBackStack(imagePollFragment!!, R.id.container, "ImagePollFragment")
+        imageFragment = ImageFragment()
+        addFragmentWithBackStack(imageFragment!!, R.id.container, "ImageFragment")
 
     }
 

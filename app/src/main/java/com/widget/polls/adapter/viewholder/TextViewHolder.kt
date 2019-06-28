@@ -9,9 +9,9 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.widget.polls.R
-import com.widget.polls.model.PollTextList
+import com.widget.polls.model.TextList
 
-class TextPollViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
+class TextViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     RecyclerView.ViewHolder(inflater.inflate(R.layout.item_text_poll, parent, false)) {
 
     private var mOption: TextView? = null
@@ -27,19 +27,20 @@ class TextPollViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     }
 
     fun bind(
-        pollTextList: PollTextList, position: Int,
+        textList: TextList, position: Int,
         listener: (Int) -> Unit,
-        sum: Int, flag: Boolean, mSelectionPos: Int
+        totalCount: Int, isClicked: Boolean, selectedPos: Int
     ) {
 
-        mOption?.text = pollTextList.option
+        mOption?.text = textList.option
+        if (isClicked) {
 
-        if (flag) {
-            mPollCount?.text = pollTextList.value.toString()
-            val double: Double = (pollTextList.value.toDouble() / sum) * 100
-            mProgressBar?.progress = double.toInt()
+            mPollCount?.text = textList.value.toString()
+            val double: Double = (textList.value.toDouble() / totalCount) * 100
+
+            mProgressBar?.progress = double.toInt();
             val drawable: Drawable?
-            if (mSelectionPos == position) {
+            if (selectedPos == position) {
                 mLayout?.isSelected = true
                 drawable = ContextCompat.getDrawable(itemView.context, R.drawable.seekbar_progress)
             } else {

@@ -36,15 +36,14 @@
 
         <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:scaleType="centerInside"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:scaleType="fitCenter"
                 android:contentDescription="@null"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/progressbar"
-                android:src="@drawable/brady"/>
+                app:layout_constraintTop_toBottomOf="@+id/progressbar"/>
 
         <TextView
                 android:id="@+id/tvName"
